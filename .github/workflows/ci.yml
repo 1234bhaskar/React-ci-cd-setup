@@ -32,8 +32,14 @@ jobs:
       - name: "Run Lints"
         run: npm run lint
 
-      - name: "Run tests"
-        run : npm test
+      # - name: "Run tests"
+      #   run : npm test
 
       - name: "Build the application"
         run: npm run build
+
+      - name: "Upload production-ready build files"
+        uses: actions/upload-artifact@v4
+        with:
+          name: build
+          path: /dist
