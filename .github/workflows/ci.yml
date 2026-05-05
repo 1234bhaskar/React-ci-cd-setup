@@ -41,5 +41,5 @@ jobs:
       - name: "Upload production-ready build files"
         uses: actions/upload-artifact@v4
         with:
-          name: build
-          path: /dist
+          name: react-build
+          path: dist
