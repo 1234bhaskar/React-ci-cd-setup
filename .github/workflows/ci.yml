@@ -19,3 +19,6 @@ jobs:
       
       - name: "Check node version"
         run: node -v
+
+      - name: "CLone the repository"
+        uses: actions/checkout@v4
