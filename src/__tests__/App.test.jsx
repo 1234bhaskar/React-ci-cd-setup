@@ -5,7 +5,9 @@ import { expect, test } from 'vitest';
 test('renders Vite + React text', () => {
     render(<App />);
     const headerElement = screen.getByText(/Vite \+ React/i);
-    expect(headerElement).toBeInTheDocument();
+    //    expect(headerElement).toBeInTheDocument();
+    // Intentional failure to trigger the failure mailer in CI
+    expect(true).toBe(false);
 });
 
 test('increments count on button click', () => {
