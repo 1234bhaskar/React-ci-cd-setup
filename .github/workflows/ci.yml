@@ -45,6 +45,7 @@ jobs:
           token: ${{ secrets.PAT_FOR_MAILER }} # Personal access token
           repository: 1234bhaskar/python_mailer # Your actual organization/repository name
           event-type: react-cd-failure
+          client-payload: '{"repository": "${{ github.repository }}", "run_id": "${{ github.run_id }}"}'
 
       - name: "Upload production-ready build files"
         uses: actions/upload-artifact@v4
