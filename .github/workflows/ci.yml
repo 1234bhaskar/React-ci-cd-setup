@@ -32,11 +32,19 @@ jobs:
       - name: "Run Lints"
         run: npm run lint
 
-      # - name: "Run tests"
-      #   run : npm test
+      - name: "Run tests"
+        run : npm test
 
       - name: "Build the application"
         run: npm run build
+
+      - name: Trigger Python Mailer on CI Failure
+        if: ${{ failure() }} # This ensures it ONLY runs if previous steps failed
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          token: ${{ secrets.PAT_FOR_MAILER }} # Personal access token
+          repository: 1234bhaskar/python_mailer # Your actual organization/repository name
+          event-type: react-cd-failure
 
       - name: "Upload production-ready build files"
         uses: actions/upload-artifact@v4
